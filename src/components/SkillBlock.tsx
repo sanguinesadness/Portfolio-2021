@@ -44,9 +44,10 @@ const SkillBlock: FC<ISkillBlockProps> = ({ captionLogoSrc, captionText, categor
                             <span className="title">{category.name}</span>
                             <div className="skill-items">
                                 {
-                                    category.items.map(item => 
+                                    category.items.map(item =>
                                         <div key={item.name} className="skill-item">
                                             <img className="skill-item__icon" src={item.logo} alt="" />
+
                                             <div className="skill-item__name-progress">
                                                 {
                                                     activeObject === "name" ?
@@ -55,7 +56,7 @@ const SkillBlock: FC<ISkillBlockProps> = ({ captionLogoSrc, captionText, categor
                                                         <ProgressBar className="progress" value={item.progress} />
                                                 }
                                             </div>
-                                        </div>    
+                                        </div>
                                     )
                                 }
                             </div>

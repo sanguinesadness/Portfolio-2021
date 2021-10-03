@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Conclusion from '../Conclusion';
 import Greeting from '../Greeting';
 import Main from '../Main';
 import Skills from '../Skills';
@@ -9,6 +10,7 @@ const HomePage: FC = () => {
             <Main/>
             <Greeting/>
             <Skills/>
+            <Conclusion/>
         </div>
     )
 }

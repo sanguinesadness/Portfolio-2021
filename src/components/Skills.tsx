@@ -1,37 +1,34 @@
 import React, { FC } from 'react';
-import Shape from './Shape';
-import shape_3 from '../images/shapes/shape-3.svg';
-import shape_4 from '../images/shapes/shape-4.svg';
 import SkillBlock, { ISkillCategory } from './SkillBlock';
 
 import browser from '../images/icons/browser.svg';
-import html from '../images/icons/logos/html.png';
-import css from '../images/icons/logos/css.png';
-import js from '../images/icons/logos/js.png';
-import scss from '../images/icons/logos/scss.png';
-import react from '../images/icons/logos/react.png';
-import ts from '../images/icons/logos/typescript.png';
-import vscode from '../images/icons/logos/vscode.png';
-import chrome from '../images/icons/logos/chrome.png';
+import html from '../images/icons/logos/html.svg';
+import css from '../images/icons/logos/css.svg';
+import js from '../images/icons/logos/js.svg';
+import scss from '../images/icons/logos/scss.svg';
+import react from '../images/icons/logos/react.svg';
+import ts from '../images/icons/logos/typescript.svg';
+import vscode from '../images/icons/logos/vscode.svg';
+import chrome from '../images/icons/logos/chrome.svg';
 import figma from '../images/icons/logos/figma.png';
-import github from '../images/icons/logos/github.png';
+import github from '../images/icons/logos/github.svg';
 
-import database from '../images/icons/database.svg';
-import nodejs from '../images/icons/logos/nodejs.png';
-import netcore from '../images/icons/logos/netcore.png';
-import mysql from '../images/icons/logos/mysql.png';
-import csharp from '../images/icons/logos/csharp.png';
-import vs from '../images/icons/logos/vs.png';
+import server from '../images/icons/server.svg';
+import nodejs from '../images/icons/logos/nodejs.svg';
+import netcore from '../images/icons/logos/netcore.svg';
+import mysql from '../images/icons/logos/mysql.svg';
+import csharp from '../images/icons/logos/csharp.svg';
+import vs from '../images/icons/logos/vs.svg';
 import rider from '../images/icons/logos/rider.png';
 import mysqlworkbench from '../images/icons/logos/mysql-workbench.png';
-import sqlserver from '../images/icons/logos/sql-server.png';
+import sqlserver from '../images/icons/logos/sql-server.svg';
 import ssms from '../images/icons/logos/ssms.png';
 import fiddler from '../images/icons/logos/fiddler.png';
 import postman from '../images/icons/logos/postman.png';
 import terminal from '../images/icons/logos/terminal.png';
 
 import computer from '../images/icons/computer.svg';
-import windows from '../images/icons/logos/windows.png';
+import microsoft from '../images/icons/logos/microsoft.svg';
 import electron from '../images/icons/logos/electron.png';
 
 const frontendCategories: ISkillCategory[] = [
@@ -185,19 +182,19 @@ const desktopCategories: ISkillCategory[] = [
                 progress: 90
             },
             {
-                logo: windows,
+                logo: microsoft,
                 name: "WPF",
                 progress: 80
             },
             {
-                logo: windows,
+                logo: microsoft,
                 name: "WinForms",
                 progress: 80
             },
             {
                 logo: electron,
                 name: "Electron.js",
-                progress: 70
+                progress: 50
             }
         ]
     },
@@ -232,7 +229,7 @@ const Skills: FC = () => {
                     <SkillBlock captionLogoSrc={browser}
                                 captionText="Front-end"
                                 categories={frontendCategories}/>
-                    <SkillBlock captionLogoSrc={database}
+                    <SkillBlock captionLogoSrc={server}
                                 captionText="Back-end"
                                 categories={backendCategories}/>
                     <SkillBlock captionLogoSrc={computer}

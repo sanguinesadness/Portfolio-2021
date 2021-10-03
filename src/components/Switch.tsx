@@ -14,7 +14,7 @@ const SwitchBorder = styled.div`
     border-radius: 50px;
     height: 38px;
     width: 80px;
-    background: ${props => props.about === "state1" ? "#FFF" : props.color ? props.color : "#212B36"};
+    background: ${props => props.about === "state1" ? "transparent" : props.color ? props.color : "#212B36"};
     transition: 400ms cubic-bezier(.69,.04,.16,1.1);
 `;
 
@@ -24,7 +24,7 @@ const SwitchDot = styled.span`
     display: flex;
     height: 26px;
     width: 26px;
-    background: ${props => props.about === "state1" ? props.color ? props.color : "#212B36" : "#FFF"};
+    background: ${props => props.about === "state1" ? props.color ? props.color : "#212B36" : "rgba(255, 255, 255, 0.9)"};
     margin: 4px 0;
     transform: ${props => props.about === "state1" ? "translateX(5px)" : "translateX(45px)"};
 `;
