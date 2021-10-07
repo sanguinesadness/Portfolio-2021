@@ -1,7 +1,7 @@
 import React, { FC, useRef, useState } from 'react';
 import Container from './Container';
-import ProgressBar from './ProgressBar';
-import Switch from './Switch';
+import ProgressBar from './UI/ProgressBar';
+import Switch from './UI/Switch';
 
 export interface ISkillItem {
     logo: string;

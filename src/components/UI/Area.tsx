@@ -56,7 +56,7 @@ const Circle = styled.li<ICircleProps>`
     display: block;
     list-style: none;
     background: rgba(255, 255, 255, 0.2);
-    ${props => props.side}: -150px;
+    ${props => props.side}: -250px;
     ${props => getSideOrientation(props.side) === "horizontal" ? "top" : "left" }: ${props => props.offset}%;
     width: ${props => props.size}px;
     height: ${props => props.size}px;
@@ -113,7 +113,7 @@ const Area: FC<IAreaProps> = ({ id, className, height, width, zIndex, side, circ
                     [Array.apply(0, Array(circlesNumber || 10)).map((x, i) => 
                         <Circle key={i} 
                                 offset={getRandomInt(0, 101)}
-                                size={getRandomInt(50, 150)}
+                                size={getRandomInt(100, 250)}
                                 animDelay={getRandomInt(0, 10)}
                                 animDuration={getRandomInt(10, 30)}
                                 side={side}

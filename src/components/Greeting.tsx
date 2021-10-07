@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import man_pointing from '../images/illustrations/man-pointing.svg';
 import gear from '../images/icons/gear.svg';
 import terminal from '../images/icons/terminal.svg';
-import Dot from './Dot';
+import Dot from './UI/Dot';
 
 const Greeting: FC = () => {
     return (
-        <section className="greeting-section full-height">
+        <section className="greeting-section">
             <div className="content">
                 <div className="info">
                     <h2 className="title">

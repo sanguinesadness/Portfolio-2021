@@ -120,6 +120,35 @@ $back-ease: cubic-bezier(.69,.04,.16,1.1);
     align-items: center;
 }
 
+@mixin scale-onhover($transition-duration: 400ms, $scale-ratio: 0.9) {
+    transition: $transition-duration ease;
+
+    &:hover {
+        transform: scale($scale-ratio);
+    }
+}
+
+@mixin bg-onclick($transition-duration: 300ms, $bg-color: rgba($night, 0.3)) {
+    transition: $transition-duration ease;
+
+    &:active {
+        background: $bg-color;
+    }
+}
+
+@mixin scale-onclick($transition-duration: 400ms, $scale-ratio: 1.1) {
+    transition: $transition-duration ease;
+
+    &:active {
+        transform: scale($scale-ratio);
+    }
+}
+
+@mixin full-height() {
+    height: 100vh;
+    min-height: 750px;
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);
@@ -199,24 +228,37 @@ $back-ease: cubic-bezier(.69,.04,.16,1.1);
 body {
     font-family: 'Montserrat', sans-serif;
     color: rgba(white, 0.9);
-    background: white;
+    background: $violet;
     font-size: 23px;
-    text-shadow: 2px 2px 5px rgba($night, 0.2);
+    text-shadow: 2px 2px 2px rgba($night, 0.3);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    --content-width: 1200px;
 
     @include violet-scrollbar();
     overflow-x: hidden;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 1.8em;
+    font-weight: 600;
 }
 
 h2 {
     font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:visited {
+        color: inherit;
+    }
 }
 
 .gray {
@@ -261,23 +303,190 @@ h2 {
     }
 }
 
-.full-height {
-    height: 100vh;
-    min-height: 900px;
+.footer {
+    width: 100%;
+    padding: 30px;
+    margin-top: 100px;
+
+    .social-links {
+        @include flex-centered(row);
+
+        .social-link {
+            height: 35px;
+            margin-right: 75px;
+            cursor: pointer;
+            @include scale-onhover();
+
+            &:nth-last-child(1) {
+                margin-right: 0;
+            }
+
+            .icon {
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+.header {
+    --header-height: 45px;
+    height: var(--header-height);
+    @include flex-centered();
+
+    .rst-logo__wrapper {
+        height: 100%;
+
+        &:hover .rst-logo {
+            transform: translateY(-100%);
+        }
+
+        .rst-logo {
+            height: 100%;
+            transition: 300ms ease;
+            box-shadow: 0 3px 10px rgba($night, 0.2);
+        }
+    }
+}
+
+.navbar {
+    padding: 30px;
+    @include flex-centered();
+
+    .navbar-buttons {
+        display: grid;
+        grid-auto-flow: column;
+        column-gap: 30px;
+
+        .navbar-button {
+            cursor: pointer;
+            @include scale-onhover(300ms, 0.9);
+
+            img, svg {
+                height: 35px;
+                width: 35px;
+            }
+        }
+    }
+}
+
+button, .button {
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    width: 70px;
+    height: 70px;
+
+    @include scale-onhover();
+    @include bg-onclick();
+
+    .icon {
+        width: 100%;
+        height: 100%;
+        fill: rgba(white, 0.9);
+    }
+}
+
+.project-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 100px;
+
+    .project-card {
+        .container {
+            height: 410px;
+            width: 590px;
+
+            cursor: pointer;
+            @include scale-onhover(400ms, 0.95);
+            @include scale-onclick(400ms, 0.98);
+
+            .card-header {
+                margin-bottom: 15px;
+                @include flex-centered(row);
+
+                .name__wrapper {
+                    width: 100%;
+                    @include flex-centered();
+
+                    .name {
+                        font-weight: 700;
+                    }
+                }
+
+                .type-tag {
+                    font-size: 1.1em;
+                }
+            }
+
+            .card-title-picture__wrapper {
+                position: relative;
+                width: 100%;
+                height: 332px;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(black, 0.3);
+
+                .title-picture {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: fill;
+                    z-index: 1;
+                }
+
+                .platform-label {
+                    position: absolute;
+                    z-index: 2;
+                    top: 30px;
+                    right: -50px;
+                    transform: rotate(45deg);
+                    width: 210px;
+                    height: 50px;
+                    background: rgba($night, 0.6);
+                    backdrop-filter: blur(5px);
+                    //box-shadow: 0 0 10px rgba($night, 0.5);
+                    
+                    .text {
+                        font-weight: 600;
+                        font-size: 0.9em;
+                        max-width: 65%;
+                        @include text-ellipsis();
+                    }
+
+                    @include flex-centered();
+                }
+            }
+        }
+
+        .card-tech-tags {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+    }
 }
 
 #root {
-    --main-accent-block-width: 200px;
+    --main-accent-block-width: 0;
 }
 
 #content-wrapper {
     padding: 0 var(--main-accent-block-width);
 
-    #home-page {
-        background: rgba($night, 0.5);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 0 30px rgba($night, 0.4);
+    #glass {
+        background: rgba($night, 0.4);
+        backdrop-filter: blur(5px);
+        //box-shadow: 0 0 30px rgba($night, 0.4);
+        overflow: hidden;
+        min-height: 100vh;
+    }
 
+    #home-page {
         & > section {
             .content > .title {
                 text-align: center;
@@ -291,27 +500,10 @@ h2 {
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-
-            .header {
-                height: 45px;
-                @include flex-centered();
-    
-                .rst-logo__wrapper {
-                    height: 100%;
-    
-                    &:hover .rst-logo {
-                        transform: translateY(-100%);
-                    }
-    
-                    .rst-logo {
-                        height: 100%;
-                        transition: 300ms ease;
-                        box-shadow: 0 10px 20px rgba($night, 0.1);
-                    }
-                }
-            }
+            @include full-height();
     
             .info {
+                padding-top: 30px;
                 @include flex-centered(column);
     
                 .title {
@@ -324,47 +516,18 @@ h2 {
                 }
 
                 .face-icon {
-                    transition: 400ms ease;
-                    height: 230px;
-                    height: 230px;
+                    height: 200px;
+                    height: 200px;
 
-                    &:hover {
-                        transform: scale(0.95);
-                    }
-                }
-            }
-    
-            .navbar {
-                padding: 30px;
-                @include flex-centered();
-    
-                .navbar-buttons {
-                    display: grid;
-                    grid-auto-flow: column;
-                    column-gap: 30px;
-    
-                    .navbar-button {
-                        cursor: pointer;
-
-                        &:hover {
-                            svg, img {
-                                transform: scale(0.9);
-                            }
-                        }
-    
-                        img, svg {
-                            transition: 200ms ease;
-                            height: 40px;
-                            width: 40px;
-                            opacity: 0.8;
-                        }
-                    }
+                    @include scale-onhover();
                 }
             }
         }
     
         .greeting-section {
+            margin: 100px 0;
             @include flex-centered();
+            @include full-height();
     
             .content {
                 margin: 200px 0;
@@ -421,7 +584,7 @@ h2 {
                 .skill-blocks {
                     display: grid;
                     grid-template-columns: 1fr;
-                    row-gap: 60px;
+                    row-gap: 80px;
     
                     .skill-block {
                         width: 960px;
@@ -491,7 +654,7 @@ h2 {
                                             width: 35px;
                                             margin-right: 20px;
                                             object-fit: contain;
-                                            image-rendering: -webkit-optimize-contrast;
+                                            //image-rendering: -webkit-optimize-contrast;
                                         }
 
                                         .skill-item__name-progress {
@@ -527,7 +690,7 @@ h2 {
         }
 
         .conclusion-section {
-            padding: 100px 250px;
+            padding: 100px 230px;
 
             .container-links {
                 display: grid;
@@ -538,31 +701,34 @@ h2 {
                 "wrk abt"
                 "git git";
 
+                .link {
+                    &.my-works-link {
+                        grid-area: wrk;
+                    }
+    
+                    &.about-me-link {
+                        grid-area: abt;
+                    }
+    
+                    &.github-link {
+                        grid-area: git;
+                    }
+                }
+
                 .container {
                     padding: 50px 70px;
                     cursor: pointer;
-                    transition: 300ms ease;
                     text-align: center;
 
-                    &:hover {
-                        transform: scale(0.95);
-                    }
+                    @include scale-onhover(300ms, 0.95);
 
                     .icon {
                         height: 60px;
                         width: 60px;
                     }
 
-                    &.my-works-container {
-                        grid-area: wrk;
-                    }
-    
-                    &.about-me-container {
-                        grid-area: abt;
-                    }
-    
-                    &.github-container {
-                        grid-area: git;
+                    .text {
+                        white-space: nowrap;
                     }
     
                     &.vertical {
@@ -596,6 +762,41 @@ h2 {
                     }
                 }
             }
+        }
+    }
+
+    #my-works-page {
+        .caption-section {
+            --footer-height: 13%;
+
+            @include flex-space-between(column);
+            @include full-height();
+
+            .content {
+                height: calc(100% - var(--footer-height) - var(--header-height));
+                @include flex-centered(column);
+                
+                .icon {
+                    width: 70px;
+                    height: 70px;
+                    margin-bottom: 30px;
+                }
+    
+                .title {
+                    margin-bottom: 30px;
+                }
+            }
+
+            .scroll-button__wrapper {
+                margin-top: 50px;
+                width: 100%;
+                @include flex-centered();
+                height: var(--footer-height);
+            }
+        }
+
+        .projects-section {
+            padding: 100px;
         }
     }
 }
