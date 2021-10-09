@@ -8,7 +8,6 @@ const MyWorksCaption = () => {
 
     return (
         <section className="caption-section">
-            <Header/>
             <div className="content">
                 <img src={briefcase} alt="" className="icon" />
                 <h1 className="title">Мои работы</h1>

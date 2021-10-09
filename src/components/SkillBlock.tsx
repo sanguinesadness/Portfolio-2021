@@ -1,18 +1,8 @@
 import React, { FC, useRef, useState } from 'react';
+import { ISkillCategory } from '../types/skill';
 import Container from './Container';
 import ProgressBar from './UI/ProgressBar';
 import Switch from './UI/Switch';
-
-export interface ISkillItem {
-    logo: string;
-    name: string;
-    progress: number;
-}
-
-export interface ISkillCategory {
-    name: string;
-    items: ISkillItem[];
-}
 
 interface ISkillBlockProps {
     captionLogoSrc: string;

@@ -311,6 +311,9 @@ a:visited {
 .header {
   --header-height: 45px;
   height: var(--header-height);
+  position: absolute;
+  width: 100vw;
+  top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -561,8 +564,6 @@ button .icon, .button .icon {
 
 #content-wrapper #glass {
   background: rgba(33, 43, 54, 0.4);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
   overflow: hidden;
   min-height: 100vh;
 }
@@ -581,18 +582,18 @@ button .icon, .button .icon {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100vh;
   min-height: 750px;
 }
 
 #content-wrapper #home-page .main-section .info {
-  padding-top: 30px;
+  padding-top: 10%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -976,7 +977,6 @@ button .icon, .button .icon {
 }
 
 #content-wrapper #my-works-page .caption-section {
-  --footer-height: 13%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -995,7 +995,7 @@ button .icon, .button .icon {
 }
 
 #content-wrapper #my-works-page .caption-section .content {
-  height: calc(100% - var(--footer-height) - var(--header-height));
+  padding-top: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1022,7 +1022,7 @@ button .icon, .button .icon {
 }
 
 #content-wrapper #my-works-page .caption-section .scroll-button__wrapper {
-  margin-top: 50px;
+  margin-bottom: 10px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1037,7 +1037,6 @@ button .icon, .button .icon {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: var(--footer-height);
 }
 
 #content-wrapper #my-works-page .projects-section {
