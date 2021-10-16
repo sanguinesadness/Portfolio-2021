@@ -312,8 +312,9 @@ a:visited {
   --header-height: 45px;
   height: var(--header-height);
   position: absolute;
-  width: 100vw;
+  width: 100%;
   top: 0;
+  z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -518,6 +519,8 @@ button .icon, .button .icon {
   background: rgba(33, 43, 54, 0.6);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+  -webkit-box-shadow: 0 0 10px rgba(33, 43, 54, 0.5);
+          box-shadow: 0 0 10px rgba(33, 43, 54, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -555,15 +558,25 @@ button .icon, .button .icon {
 }
 
 #root {
-  --main-accent-block-width: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #content-wrapper {
-  padding: 0 var(--main-accent-block-width);
+  --content-width: 1450px;
+  width: var(--content-width);
 }
 
 #content-wrapper #glass {
-  background: rgba(33, 43, 54, 0.4);
+  background: rgba(33, 43, 54, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  -webkit-box-shadow: 0 0 30px rgba(33, 43, 54, 0.4);
+          box-shadow: 0 0 30px rgba(33, 43, 54, 0.4);
   overflow: hidden;
   min-height: 100vh;
 }
@@ -593,7 +606,7 @@ button .icon, .button .icon {
 }
 
 #content-wrapper #home-page .main-section .info {
-  padding-top: 10%;
+  padding-top: 25vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -895,7 +908,7 @@ button .icon, .button .icon {
           column-gap: 70px;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-      grid-template-areas: "wrk abt" "git git";
+      grid-template-areas: "wrk abt" "git git";
 }
 
 #content-wrapper #home-page .conclusion-section .container-links .link.my-works-link {
@@ -943,12 +956,12 @@ button .icon, .button .icon {
   display: block;
 }
 
-#content-wrapper #home-page .conclusion-section .container-links .container.vertical .icon {
-  margin-bottom: 30px;
+#content-wrapper #home-page .conclusion-section .container-links .container.vertical .main-block {
+  margin-bottom: 20px;
 }
 
-#content-wrapper #home-page .conclusion-section .container-links .container.vertical .title {
-  margin-bottom: 20px;
+#content-wrapper #home-page .conclusion-section .container-links .container.vertical .main-block .icon {
+  margin-bottom: 30px;
 }
 
 #content-wrapper #home-page .conclusion-section .container-links .container.horizontal {
@@ -962,18 +975,30 @@ button .icon, .button .icon {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-#content-wrapper #home-page .conclusion-section .container-links .container.horizontal .icon {
+#content-wrapper #home-page .conclusion-section .container-links .container.horizontal .main-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#content-wrapper #home-page .conclusion-section .container-links .container.horizontal .main-block .icon {
   margin-right: 70px;
 }
 
-#content-wrapper #home-page .conclusion-section .container-links .container.horizontal .title {
-  margin-right: 230px;
-}
-
-#content-wrapper #home-page .conclusion-section .container-links .container.horizontal .text {
-  padding: 0 20px;
+#content-wrapper #home-page .conclusion-section .container-links .container.horizontal .text-block {
+  margin-right: 30px;
 }
 
 #content-wrapper #my-works-page .caption-section {
@@ -995,7 +1020,7 @@ button .icon, .button .icon {
 }
 
 #content-wrapper #my-works-page .caption-section .content {
-  padding-top: 15%;
+  padding-top: 30vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -333,8 +333,9 @@ a {
     --header-height: 45px;
     height: var(--header-height);
     position: absolute;
-    width: 100vw;
+    width: 100%;
     top: 0;
+    z-index: 10;
     @include flex-centered();
 
     .rst-logo__wrapper {
@@ -451,7 +452,7 @@ button, .button {
                     height: 50px;
                     background: rgba($night, 0.6);
                     backdrop-filter: blur(5px);
-                    //box-shadow: 0 0 10px rgba($night, 0.5);
+                    box-shadow: 0 0 10px rgba($night, 0.5);
                     
                     .text {
                         font-weight: 600;
@@ -475,16 +476,18 @@ button, .button {
 }
 
 #root {
-    --main-accent-block-width: 0;
+    display: flex;
+    justify-content: center;
 }
 
 #content-wrapper {
-    padding: 0 var(--main-accent-block-width);
+    --content-width: 1450px;
+    width: var(--content-width);
 
     #glass {
-        background: rgba($night, 0.4);
-        //backdrop-filter: blur(5px);
-        //box-shadow: 0 0 30px rgba($night, 0.4);
+        background: rgba($night, 0.5);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 30px rgba($night, 0.4);
         overflow: hidden;
         min-height: 100vh;
     }
@@ -503,7 +506,7 @@ button, .button {
             @include full-height();
     
             .info {
-                padding-top: 10%;
+                padding-top: 25vh;
                 @include flex-centered(column);
     
                 .title {
@@ -734,11 +737,11 @@ button, .button {
                     &.vertical {
                         display: block;
 
-                        .icon {
-                            margin-bottom: 30px;
-                        }
+                        .main-block {
+                            .icon {
+                                margin-bottom: 30px;
+                            }
 
-                        .title {
                             margin-bottom: 20px;
                         }
                     }
@@ -747,17 +750,20 @@ button, .button {
                         display: flex;
                         flex-direction: row;
                         align-items: center;
+                        justify-content: space-between;
 
-                        .icon {
-                            margin-right: 70px;
+                        .main-block {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+
+                            .icon {
+                                margin-right: 70px;
+                            }
                         }
 
-                        .title {
-                            margin-right: 230px;
-                        }
-
-                        .text {
-                            padding: 0 20px;
+                        .text-block {
+                            margin-right: 30px;
                         }
                     }
                 }
@@ -771,7 +777,7 @@ button, .button {
             @include full-height();
 
             .content {
-                padding-top: 15%;
+                padding-top: 30vh;
                 @include flex-centered(column);
                 
                 .icon {

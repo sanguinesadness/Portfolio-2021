@@ -10,7 +10,6 @@ const ScrollToTop: FC = () => {
 
     useEffect(() => {
         scroll.scrollToTop({
-            smooth: "linear",
             duration: 0
         });
     }, [pathname]);
