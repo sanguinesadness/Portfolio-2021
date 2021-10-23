@@ -1,17 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { FC } from 'react';
+import * as SC from '../../styles/styled-components/dot';
+import { DotStyleType } from '../../types/dot';
 
-const DotWrapper = styled.span`
-    display: block;
-    height: 17px;
-    width: 17px;
-    background: #F54949;
-    border-radius: 50%;
-`;
+interface IDotProps {
+    style: DotStyleType;
+}
 
-const Dot = () => {
+const Dot: FC<IDotProps> = ({ style }) => {
     return (
-        <DotWrapper className="dot"/>
+        <SC.Dot className="dot" styleType={style}/>
     )
 }
 

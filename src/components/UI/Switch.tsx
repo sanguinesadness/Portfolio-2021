@@ -1,42 +1,6 @@
 import React, { FC, useState } from 'react';
-import styled from 'styled-components';
-
-const SwitchWrapper = styled.div`
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-`;
-
-const SwitchBorder = styled.div`
-    border: 2px solid ${props => props.color ? props.color : "#212B36"};
-    border-radius: 50px;
-    height: 38px;
-    width: 80px;
-    background: ${props => props.about === "state1" ? "transparent" : props.color ? props.color : "#212B36"};
-    transition: 400ms cubic-bezier(.69,.04,.16,1.1);
-`;
-
-const SwitchDot = styled.span`
-    transition: 400ms cubic-bezier(.69,.04,.16,1.1);
-    border-radius: 50px;
-    display: flex;
-    height: 26px;
-    width: 26px;
-    background: ${props => props.about === "state1" ? props.color ? props.color : "#212B36" : "rgba(255, 255, 255, 0.9)"};
-    margin: 4px 0;
-    transform: ${props => props.about === "state1" ? "translateX(5px)" : "translateX(45px)"};
-`;
-
-SwitchDot.defaultProps = {
-    about: "state1"
-};
-
-const SwitchTitle = styled.span`
-    margin-right: 30px;
-    font-weight: 700;
-`;
+import { SwitchStates, SwitchStateType } from '../../types/switch-state';
+import * as SC from '../../styles/styled-components/switch';
 
 interface ISwitchProps {
     color?: string,
@@ -46,33 +10,33 @@ interface ISwitchProps {
 }
 
 const Switch: FC<ISwitchProps> = ({ title, action1, action2, color }) => {
-    const [state, setState] = useState<"state1" | "state2">("state1");
+    const [state, setState] = useState<SwitchStateType>(SwitchStates.FIRST);
 
     const toggleState = () => {
         switch (state) {
-            case "state1":
-                setState("state2");
+            case SwitchStates.FIRST:
+                setState(SwitchStates.SECOND);
                 action1?.call(null);
                 break;
-            case "state2":
-                setState("state1");
+            case SwitchStates.SECOND:
+                setState(SwitchStates.FIRST);
                 action2?.call(null);
                 break;
         }
     };
 
     return (
-        <SwitchWrapper className={`switch ${state}`} onClick={toggleState}>
+        <SC.Switch className={`switch ${state}-state`} onClick={toggleState}>
             {
                 title ?
-                    <SwitchTitle className="switch-title">{title}</SwitchTitle>
+                    <SC.Title className="switch-title">{title}</SC.Title>
                     :
                     <></>
             }
-            <SwitchBorder className="border" about={state} color={color}>
-                <SwitchDot className="dot" about={state} color={color}/>
-            </SwitchBorder>
-        </SwitchWrapper>
+            <SC.Border className="border" state={state} color={color}>
+                <SC.Circlet className="circlet" state={state} color={color}/>
+            </SC.Border>
+        </SC.Switch>
     )
 }
 
