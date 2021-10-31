@@ -1,0 +1,45 @@
+[33mcommit ab425e273757e69d3d1cec79df6c8f2002a8e727[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Rustam Agamaliev <agamalievrustam37@gmail.com>
+Date:   Sun Oct 24 02:36:15 2021 +0500
+
+    About page added + Code refactored
+
+[33mcommit 7ea1ed7780d9a5981d6839a0709b57dd5b832282[m
+Author: Rustam Agamaliev <agamalievrustam37@gmail.com>
+Date:   Sat Oct 16 13:16:13 2021 +0500
+
+    small fix
+
+[33mcommit 2acb9db6e25209f6163a27bc2ad820c4fcfa5a98[m
+Author: Rustam Agamaliev <agamalievrustam37@gmail.com>
+Date:   Sat Oct 9 16:34:12 2021 +0500
+
+    Code refactoring + Test page transitions
+
+[33mcommit 4c44cac2a86bc416689f45b5f9c09f32068e21ea[m
+Author: Rustam Agamaliev <agamalievrustam37@gmail.com>
+Date:   Fri Oct 8 04:10:34 2021 +0500
+
+    Works page added
+    
+    7 Projects
+
+[33mcommit 611a155a6c893691652021e36c59ee69acb8fa62[m
+Author: Rustam Agamaliev <agamalievrustam37@gmail.com>
+Date:   Mon Oct 4 03:06:13 2021 +0500
+
+    Design reworked
+    
+    Website now implemented in Glassmorphism
+
+[33mcommit 4f75af62bab4121e9b3b7a5b3eb9a6920b0e028d[m
+Author: Rustam Agamaliev <agamalievrustam37@gmail.com>
+Date:   Sat Oct 2 14:22:32 2021 +0500
+
+    Initial commit
+
+[33mcommit 680e073c9081bd9d65698bdb3a23e0e72a308b14[m
+Author: Rustam Agamaliev <agamalievrustam37@gmail.com>
+Date:   Sun Sep 26 20:23:51 2021 +0500
+
+    Initialize project using Create React App

@@ -10,10 +10,13 @@ import Skills from '../sections/Skills';
 import WorksCaption from '../sections/WorksCaption';
 import Works from '../sections/Works';
 import Page from './Page';
-import BackToPageButton from './BackToPageButton';
+import BackToHomeButton from './BackToHomeButton';
 import ScrollButtons from './ScrollButtons';
 import AboutCaption from '../sections/AboutCaption';
 import Story from '../sections/Story';
+import settings from '../../../package.json';
+
+const appGitName = settings['git-name'];
 
 const PageSwitch: FC = () => {
     return (
@@ -27,7 +30,7 @@ const PageSwitch: FC = () => {
                             onEnter={(node: HTMLElement) => animateTransition(pathname, node.children)}
                             timeout={{ enter: 300, exit: 0 }}>
                             <Switch>
-                                <Route path="/" exact render={() =>
+                                <Route path={`/${appGitName}`} exact render={() =>
                                     <Page className="home">
                                         <HomeCaption />
                                         <Greeting />
@@ -36,17 +39,17 @@ const PageSwitch: FC = () => {
                                         <ScrollButtons elements={["caption", "greeting", "skills", "conclusion"]} />
                                     </Page>
                                 } />
-                                <Route path="/works" exact render={() =>
+                                <Route path={`/${appGitName}/works`} exact render={() =>
                                     <Page className="works">
-                                        <BackToPageButton />
+                                        <BackToHomeButton />
                                         <WorksCaption />
                                         <Works />
                                         <ScrollButtons elements={["caption", "works"]} />
                                     </Page>
                                 } />
-                                <Route path="/about" exact render={() => 
+                                <Route path={`/${appGitName}/about`} exact render={() => 
                                     <Page className="about">
-                                        <BackToPageButton/>
+                                        <BackToHomeButton/>
                                         <AboutCaption/>
                                         <Story/>
                                         <ScrollButtons elements={["caption", "story"]} />

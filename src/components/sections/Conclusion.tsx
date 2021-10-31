@@ -5,6 +5,9 @@ import info from '../../images/icons/info-gradient.svg';
 import github from '../../images/icons/github-gradient.svg';
 import { Link } from 'react-router-dom';
 import { Element } from 'react-scroll';
+import settings from '../../../package.json';
+
+const appGitName = settings['git-name'];
 
 const Conclusion: FC = () => {
     return (
@@ -12,7 +15,7 @@ const Conclusion: FC = () => {
             <div className="content-block">
                 <h2 className="title">Ссылки</h2>
                 <div className="container-links">
-                    <Link to="/works" className="link my-works-link">
+                    <Link to={`/${appGitName}/works`} className="link my-works-link">
                         <Container className="my-works-container vertical">
                             <div className="main-block">
                                 <img src={briefcase} alt="" className="icon" />
@@ -23,7 +26,7 @@ const Conclusion: FC = () => {
                             </div>
                         </Container>
                     </Link>
-                    <Link to="/about" className="link about-me-link">
+                    <Link to={`/${appGitName}/about`} className="link about-me-link">
                         <Container className="about-me-container vertical">
                             <div className="main-block">
                                 <img src={info} alt="" className="icon" />

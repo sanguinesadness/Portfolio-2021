@@ -15,10 +15,10 @@ const ProgressBar: FC<IProgressBarProps> = ({
     wrapperRef }) => {
     return (
         <SC.ProgressBar ref={wrapperRef} className={`progress-bar__wrapper ${className ? className : ""}`}>
-            <SC.Bar style={{ width: barWidth }}>
-                <SC.BarValue style={{ width: `${value}%` }}/>
+            <SC.Bar style={{ width: barWidth }} className="bar">
+                <SC.BarValue style={{ width: `${value}%` }} className="value"/>
             </SC.Bar>
-            <SC.ValueText className="progress-value-text">{value}%</SC.ValueText>
+            <SC.ValueText className="value-text">{value}%</SC.ValueText>
         </SC.ProgressBar>
     )
 }

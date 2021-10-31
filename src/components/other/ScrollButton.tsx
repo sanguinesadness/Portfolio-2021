@@ -16,7 +16,7 @@ const ScrollButton: FC<IScrollButtonProps> = ({ pos, element, className }) => {
               to={element} 
               smooth="easeInOutCubic"
               spy={true}>
-            <span className="scroll-index">
+            <span className="scroll-position">
                 {
                     pos === QueuePositions.LAST ?
                         <AiFillCaretDown/>

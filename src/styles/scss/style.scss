@@ -403,18 +403,20 @@ button, .button {
 
 .scroll-buttons {
     @include flex-centered(column);
+    z-index: 10;
 
     .scroll-button {
         display: block;
         height: 45px;
         width: 45px;
         margin-bottom: 20px;
+        backdrop-filter: blur(10px);
 
         &.active .scroll-index {
             opacity: 1;
         }
 
-        .scroll-index {
+        .scroll-position {
             @include flex-centered();
             @include scale-onhover(300ms, 0.9);
             @include scale-onclick(300ms, 1);
@@ -441,6 +443,8 @@ button, .button {
         .container {
             height: 410px;
             width: 590px;
+            display: flex;
+            flex-direction: column;
 
             cursor: pointer;
             @include scale-onhover(400ms, 0.95);
@@ -456,6 +460,8 @@ button, .button {
 
                     .name {
                         font-weight: 700;
+                        max-width: 90%;
+                        @include text-ellipsis(false);
                     }
                 }
 
@@ -467,12 +473,13 @@ button, .button {
             .card-title-picture__wrapper {
                 position: relative;
                 width: 100%;
-                height: 332px;
+                height: 100%;
                 border-radius: 10px;
                 overflow: hidden;
                 box-shadow: 0 0 20px rgba(black, 0.3);
 
                 .title-picture {
+                    display: flex;
                     width: 100%;
                     height: 100%;
                     object-fit: fill;
@@ -515,18 +522,20 @@ button, .button {
 .timeline {
     position: relative;
     --image-height: 275px;
+    --image-width: 400px;
     --line-width: 8px;
     --rhomb-size: 60px;
+    --item-margin: 100px;
 
     .timeline-items {
-        padding: 100px;
+        padding: var(--item-margin);
         margin-left: 200px;
 
         .timeline-item {
             display: flex;
             flex-direction: row;
             align-items: center;
-            margin-bottom: 100px;
+            margin-bottom: var(--item-margin);
     
             &:nth-last-child(1) {
                 margin-bottom: 0;
@@ -538,7 +547,7 @@ button, .button {
     
             .image__wrapper {
                 height: var(--image-height);
-                width: 400px;
+                width: var(--image-width);
                 flex: 0 0 auto;
                 overflow: hidden;
 
@@ -569,7 +578,11 @@ button, .button {
     
                 .text-block {
                     .paragraph {
-                        margin: 20px 0;
+                        margin-bottom: 20px;
+
+                        &:nth-last-child(1) {
+                            margin-bottom: 0;
+                        }
                     }
                 }
             }
@@ -583,13 +596,13 @@ button, .button {
         width: var(--line-width);
         left: 150px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 7%, #FFFFFF 93%, rgba(255, 255, 255, 0) 100%);
-        padding: 100px 0;
+        padding: var(--item-margin) 0;
 
         .row {
             position: relative;
             height: var(--image-height);
             width: var(--rhomb-size);
-            margin-bottom: 100px;
+            margin-bottom: var(--item-margin);
             @include flex-centered();
 
             &:nth-last-child(1) {
@@ -639,7 +652,7 @@ button, .button {
                     @include flex-space-between(column);
 
                     .caption-body {
-                        padding-top: 30vh;
+                        padding-top: calc(200px + 10vh);
                         @include flex-centered(column);
 
                         .icon {
@@ -689,11 +702,12 @@ button, .button {
             }
         }
 
-        .back-to-page-button__wrapper {
+        .back-to-home-button__wrapper {
             position: fixed;
             top: 0;
             left: 20px;
             height: 100vh;
+            z-index: 10;
             @include flex-centered();
         }
 
@@ -709,9 +723,10 @@ button, .button {
                 .content-block {
                     @include flex-space-between(column);
                     padding: 10px;
+                    position: relative;
 
                     .caption-body {
-                        padding-top: 25vh;
+                        padding-top: calc(100px + 10vh);
                         @include flex-centered(column);
             
                         .title {
@@ -770,7 +785,7 @@ button, .button {
                             animation: rotation 10s linear infinite;
                             position: absolute;
                             width: 75px;
-                            right: 200px;
+                            right: 150px;
                             top: -60px;
                         }
         
@@ -796,6 +811,7 @@ button, .button {
                         .skill-block {
                             width: 1000px;
                             --part-width: 380px;
+                            --part-gap: 80px;
         
                             .skill-block__header {
                                 margin-bottom: 50px;
@@ -806,7 +822,7 @@ button, .button {
                                 .skill-caption {
                                     font-size: 1.1em;
                                     width: var(--part-width);
-                                    margin-right: 80px;
+                                    margin-right: var(--part-gap);
                                     display: flex;
                                     flex-direction: row;
                                     justify-content: flex-start;
@@ -830,7 +846,7 @@ button, .button {
                                 flex-direction: row;
         
                                 & > .skill-category:nth-child(1) {
-                                    margin-right: 80px;
+                                    margin-right: var(--part-gap);
                                 }
         
                                 .skill-category {
@@ -855,10 +871,11 @@ button, .button {
                                             align-items: center;
         
                                             .skill-item__icon {
-                                                min-width: 35px;
-                                                min-height: 35px;
-                                                height: 35px;
-                                                width: 35px;
+                                                --size: 35px;
+                                                min-width: var(--size);
+                                                min-height: var(--size);
+                                                height: var(--size);
+                                                width: var(--size);
                                                 margin-right: 20px;
                                                 object-fit: contain;
                                                 //image-rendering: -webkit-optimize-contrast;
@@ -898,7 +915,10 @@ button, .button {
     
             .conclusion {
                 .content-block {
-                    padding: 120px 230px;
+                    padding: 120px 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
     
                     .container-links {
                         display: grid;
@@ -924,7 +944,7 @@ button, .button {
                         }
         
                         .container {
-                            padding: 50px 70px;
+                            padding: 50px 80px;
                             cursor: pointer;
                             text-align: center;
         
@@ -981,8 +1001,325 @@ button, .button {
             .works-grid {
                 .content-block {
                     padding: 100px;
+                    @include flex-centered();
                 }
             }
         }
+    }
+}
+
+@media screen and (min-height: 1000px) {
+    .page-switch .page {
+        &.home {
+            .caption {
+                .content-block {
+                    .caption-body {
+                        padding-top: calc(100px + 17vh);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-height: 850px) {
+    .page-switch .page {
+        .section.caption .content-block .caption-body {
+            padding-top: calc(150px + 10vh);
+        }
+
+        &.home {
+            .caption .content-block {
+                .caption-body {
+                    padding-top: calc(100px + 5vh);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1700px) {
+    .page-switch .page {
+        --page-width: 1300px;
+
+        &.home {
+            .greeting .content-block {
+                .illustration {
+                    .person {
+                        width: 400px;
+                    }
+
+                    .gear {
+                        right: 100px;
+                        width: 70px;
+                    }
+
+                    .terminal {
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+
+    .work-cards .work-card .container {
+        width: 530px;
+        height: 370px;
+    }
+
+    .timeline {
+        --image-height: 250px;
+        --image-width: 380px;
+    }
+}
+
+@media screen and (max-width: 1560px) {
+    body {
+        font-size: 20px;
+    }
+
+    .page-switch .page {
+        --page-width: 1200px;
+
+        &.home {
+            .greeting .content-block {
+                column-gap: 40px;
+
+                .info {
+                    width: 500px;
+                    text-align: left;
+                    align-items: flex-start;
+                }
+
+                .illustration {
+                    margin-right: 0;
+
+                    .gear {
+                        display: none;
+                    }
+
+                    .terminal {
+                        right: 0;
+                        top: -50px;
+                    }
+
+                    .person {
+                        width: 400px;
+                    }
+                }
+            }
+
+            .skills .content-block {
+                .skill-blocks .skill-block {
+                    width: 900px;
+                    --part-width: 330px;
+                }
+            }
+
+            .conclusion .content-block .container-links .container {
+                padding: 50px 65px;
+            }
+        }
+    }
+
+    .work-cards {
+        row-gap: 80px;
+
+        .work-card .container {
+            width: 480px;
+            height: 330px;
+
+            .card-title-picture__wrapper {
+                .platform-label {
+                    top: 20px;
+                    right: -60px;
+                }
+            }
+        }
+    }
+
+    .timeline {
+        --image-height: 230px;
+        --image-width: 350px;
+    }
+}
+
+@media screen and (max-width: 1475px) {
+    .page-switch .page {
+        --page-width: 80vw;
+
+        &.home {
+            .greeting .content-block {
+                column-gap: 50px;
+
+                .info {
+                    width: 400px;
+                }
+            }
+
+            .skills .content-block {
+                .skill-blocks .skill-block {
+                    width: 840px;
+                    --part-width: 300px;
+                    
+                    .skill-block__body .skill-category .skill-items {
+                        row-gap: 17px;
+
+                        .skill-item {
+                            .skill-item__icon {
+                                --size: 30px;
+                            }
+
+                            .skill-item__name-progress .progress .bar {
+                                height: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .scroll-buttons {
+            right: 40px;
+        }
+    }
+
+    .work-cards {
+        .work-card .container {
+            width: 32vw;
+            height: 23vw;
+        }
+    }
+
+    .timeline {
+        --image-height: 15vw;
+        --image-width: 23vw;
+        --rhomb-size: 56px;
+        font-size: 0.9em;
+
+        .main-line {
+            left: 120px;
+        }
+
+        .timeline-items {
+            margin-left: 160px;
+
+            .timeline-item .info {
+                .year-block {
+                    margin-bottom: 20px;
+                }
+
+                .text-block .paragraph {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .page-switch .page {
+        &.home {
+            .greeting .content-block {
+                column-gap: 80px;
+
+                .info {
+                    width: 350px;
+                }
+
+                .illustration {
+                    .terminal {
+                        width: 80px;
+                    }
+
+                    .person {
+                        width: 350px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .page-switch .page {
+        .section .content-block > .title {
+            padding-bottom: 60px;
+        }
+        
+        &.home {
+            .skills .content-block {
+                .skill-blocks .skill-block {
+                    width: 700px;
+                    --part-width: 250px;
+                    --part-gap: 70px;
+                    padding: 60px;
+                }
+            }
+
+            .conclusion .content-block .container-links {
+                row-gap: 50px;
+                column-gap: 50px;
+
+                .container {
+                    padding: 50px;
+
+                    .icon {
+                        height: 50px;
+                        width: 50px;
+                    }
+
+                    &.horizontal .main-block .icon {
+                        margin-right: 60px;
+                    }
+                }
+            }
+        }
+
+        .scroll-buttons {
+            right: 30px;
+        }
+    }
+
+    .work-cards {
+        .work-card {
+            .container {
+                .card-header .name__wrapper {
+                    font-size: 0.9em;
+                }
+    
+                .card-title-picture__wrapper .platform-label {
+                    height: 40px;
+                    font-size: 0.9em;
+                    top: 15px;
+                    right: -65px;
+                }
+            }
+
+            .card-tech-tags .tech-tag {
+                margin: 5px;
+            }
+        }
+    }
+
+    .timeline {
+        --rhomb-size: 54px;
+        --item-margin: 80px;
+
+        .main-line {
+            left: 110px;
+
+            .row .sub-line {
+                width: 100px;
+            }
+        }
+
+        .timeline-items {
+            margin-left: 140px;
+        }
+    }
+
+    .footer .social-links .social-link {
+        height: 30px;
     }
 }

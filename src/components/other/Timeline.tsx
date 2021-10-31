@@ -7,8 +7,8 @@ const Timeline: FC = () => {
         <div className="timeline">
             <div className="main-line">
                 {
-                    timelineItems.map(() => 
-                        <div className="row">
+                    timelineItems.map((_, index) => 
+                        <div className="row" key={index}>
                             <div className="rhomb"/>
                             <div className="sub-line"/>
                         </div>
