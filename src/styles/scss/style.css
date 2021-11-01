@@ -818,6 +818,7 @@ button.bg-blur, .button.bg-blur {
 }
 
 .page-switch .page .section.caption .content-block {
+  position: relative;
   padding: 0 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -972,7 +973,6 @@ button.bg-blur, .button.bg-blur {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
 }
 
 .page-switch .page.home .caption .content-block .caption-body {

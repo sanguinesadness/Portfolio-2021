@@ -649,6 +649,7 @@ button, .button {
                 @include full-height(800px);
 
                 .content-block {
+                    position: relative;
                     padding: 0 50px;
                     @include flex-space-between(column);
 
@@ -728,7 +729,6 @@ button, .button {
             .caption {
                 .content-block {
                     @include flex-space-between(column);
-                    position: relative;
 
                     .caption-body {
                         padding-top: calc(100px + 10vh);
