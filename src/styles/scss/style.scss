@@ -144,13 +144,13 @@ $back-ease: cubic-bezier(.69,.04,.16,1.1);
     }
 }
 
-@mixin full-height() {
+@mixin full-height($min-height: 800px) {
     height: 100vh;
-    min-height: 800px;
+    min-height: $min-height;
 }
 
-@mixin glass-style() {
-    border-radius: 20px;
+@mixin glass-style($border-radius: 0) {
+    border-radius: $border-radius;
     background: rgba($night, 0.5);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba($night, 0.4);
@@ -293,7 +293,7 @@ a {
     width: 100%;
     padding: 40px;
     margin-bottom: 35px;
-    @include glass-style();
+    @include glass-style(20px);
 
     .social-links {
         @include flex-centered(row);
@@ -412,7 +412,7 @@ button, .button {
         margin-bottom: 20px;
         backdrop-filter: blur(10px);
 
-        &.active .scroll-index {
+        &.active .scroll-position {
             opacity: 1;
         }
 
@@ -646,9 +646,10 @@ button, .button {
             padding: 35px 0;
 
             &.caption {
-                @include full-height();
+                @include full-height(800px);
 
                 .content-block {
+                    padding: 0 50px;
                     @include flex-space-between(column);
 
                     .caption-body {
@@ -663,6 +664,11 @@ button, .button {
             
                         .title {
                             margin-bottom: 30px;
+                            text-align: center;
+                        }
+
+                        .text {
+                            text-align: center;
                         }
                     }
 
@@ -689,7 +695,7 @@ button, .button {
             .content-block {
                 width: 100%;
                 height: 100%;
-                @include glass-style();
+                @include glass-style(20px);
         
                 & > .title {
                     text-align: center;
@@ -722,16 +728,11 @@ button, .button {
             .caption {
                 .content-block {
                     @include flex-space-between(column);
-                    padding: 10px;
                     position: relative;
 
                     .caption-body {
                         padding-top: calc(100px + 10vh);
                         @include flex-centered(column);
-            
-                        .title {
-                            margin-bottom: 30px;
-                        }
             
                         .text {
                             text-align: center;
@@ -739,7 +740,6 @@ button, .button {
                         }
         
                         .face-icon {
-                            height: 200px;
                             height: 200px;
         
                             @include scale-onhover();
@@ -749,7 +749,7 @@ button, .button {
             }
         
             .greeting {
-                @include full-height();
+                @include full-height(800px);
         
                 .content-block {
                     display: grid;
@@ -1321,5 +1321,631 @@ button, .button {
 
     .footer .social-links .social-link {
         height: 30px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .timeline {
+        --image-height: 30vw;
+        --image-width: 100%;
+        --dot-size: 50px;
+        --left-margin: 110px;
+
+        .main-line {
+            left: var(--left-margin);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 2%, #FFFFFF 93%, rgba(255, 255, 255, 0) 100%);
+
+            .rhomb, .sub-line {
+                display: none;
+            }
+        }
+
+        .timeline-items {
+            .timeline-item {
+                flex-direction: column-reverse;
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 90%;
+
+                $dot-box-shadow: 0 0 20px rgba(#FFF, 0.9);
+
+                .info {
+                    margin-left: 0;
+                    margin-bottom: 25px;
+
+                    .year-block {
+                        flex-direction: row-reverse;
+                        margin-bottom: 20px;
+
+                        .dot {
+                            margin: 0;
+                            box-shadow: $dot-box-shadow;
+                            position: absolute;
+                            left: calc(var(--left-margin) - calc((var(--dot-size) / 2) - (var(--line-width) / 2)));
+                            width: var(--dot-size);
+                            height: var(--dot-size);
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+
+                &:hover .info .year-block .dot {
+                    box-shadow: $dot-box-shadow;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .page-switch .page {
+        &.home {
+            .greeting {
+                min-height: auto;
+                height: auto;
+
+                .content-block {
+                    padding: 100px 130px;
+                    flex-direction: column;
+                    row-gap: 60px;
+    
+                    .info {
+                        width: auto;
+                        align-items: center;
+                        text-align: center;
+                    }
+
+                    .illustration {
+                        .person {
+                            width: 35vw;
+                        }
+
+                        .terminal {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        } 
+
+        .back-to-home-button__wrapper {
+            left: 10px;
+
+            .back-to-home-button {
+                height: 45px;
+                width: 45px;
+                padding: 0;
+            }
+        }
+
+        .scroll-buttons {
+            right: 25px;
+        }
+    }
+
+    .work-cards {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+
+        .work-card {
+            .container {
+                width: 100%;
+                height: 40vw;
+
+                .card-header .name__wrapper {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .page-switch .page {
+        &.home {
+            .skills .content-block .skill-blocks {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+
+                .skill-block {
+                    width: 65vw;
+                    
+                    .skill-block__header {
+                        @include flex-space-between(row);
+
+                        .skill-caption {
+                            margin: 0;
+                            width: auto;
+                        }
+                    }
+
+                    .skill-block__body {
+                        flex-direction: column;
+                        row-gap: 50px;
+
+                        .skill-category {
+                            width: 100%;
+                            margin: 0 !important;
+
+                            .skill-items .skill-item .skill-item__name-progress .name {
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .conclusion .content-block .container-links {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                column-gap: 0;
+                row-gap: 40px;
+
+                .link {
+                    width: 50vw;
+
+                    .container {
+                        padding: 50px 10px;
+                    }
+                }
+            }
+        }
+
+        .scroll-buttons {
+            right: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .timeline {
+        --image-height: 27vw;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    body {
+        font-size: 19px;
+    }
+
+    .navbar {
+        padding: 20px;
+    }
+
+    .page-switch .page {
+        &.home {
+            .caption .content-block {
+                .caption-body .face-icon {
+                    height: 170px;
+                }
+            }
+
+            .greeting .content-block {
+                padding: 100px 75px;
+
+                .illustration .person {
+                    width: 40vw;
+                }
+            }
+
+            .skills .content-block {
+                .skill-blocks .skill-block {
+                    font-size: 1em;
+
+                    .skill-block__header {
+                        .progress .switch .switch-title {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.works {
+            .works-grid .content-block {
+                padding: 70px;
+            }
+        }
+
+        .scroll-buttons {
+            right: 15px;
+        }
+    }
+
+    .work-cards .work-card .container {
+        height: 45vw;
+    }
+
+    .timeline {
+        --item-margin: 60px;
+
+        .timeline-items {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .page-switch .page {
+        --page-width: 90vw;
+
+        .section .content-block > .title {
+            padding-bottom: 40px;
+        }
+
+        .scroll-buttons, .back-to-home-button__wrapper {
+            display: none;
+        }
+
+        &.home {
+            .skills .content-block {
+                padding: 100px 0;
+
+                .skill-blocks .skill-block {
+                    width: 75vw;
+                }
+            }
+
+            .conclusion .content-block {
+                padding: 100px 0;
+
+                .container-links .link {
+                    width: 70vw;
+                }
+            }
+        }
+    }
+
+    .work-cards .work-card .container {
+        height: 50vw;
+    }
+
+    .timeline {
+        --image-height: 34vw;
+        --left-margin: 90px;
+
+        .timeline-items {
+            padding: 70px 70px 70px 40px;
+
+            .timeline-item {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .timeline {
+        --line-width: 6px;
+        --dot-size: 40px;
+        --left-margin: 70px;
+        --image-height: 36vw;
+
+        .timeline-items {
+            padding: 70px 50px 70px 70px;
+            margin-left: var(--left-margin);
+
+            .timeline-item .image__wrapper {
+                padding: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .page-switch .page {
+        --block-padding: 80px;
+        --element-width: 78vw;
+
+        &.home {
+            .greeting .content-block {
+                padding: var(--block-padding) 50px;
+
+                .illustration .person {
+                    width: 50vw;
+                }
+            }
+
+            .skills .content-block {
+                padding: var(--block-padding) 0;
+
+                .skill-blocks .skill-block {
+                    padding: 50px;
+                    width: var(--element-width);
+    
+                    .skill-block__header .skill-caption .skill-caption-icon {
+                        display: none;
+                    }
+                }
+            }
+
+            .conclusion .content-block {
+                padding: var(--block-padding) 0;
+
+                .container-links .link {
+                    width: var(--element-width);
+                }
+            }
+        }
+
+        &.works {
+            .works-grid .content-block {
+                padding: 60px 0;
+            }
+        }
+    }
+
+    .work-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        row-gap: 60px;
+
+        .work-card {
+            width: var(--element-width);
+
+            .container {
+                width: 100%;
+                height: 55vw;
+            }
+        }
+    }
+
+    .footer {
+        padding: 30px;
+
+        .social-links .social-link {
+            margin-right: 60px;
+            height: 25px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .timeline {
+        --left-margin: 50px;
+        --dot-size: 30px;
+        --line-width: 4px;
+        --image-height: 38vw;
+
+        .timeline-items {
+            padding: var(--block-padding) 
+                     40px 
+                     var(--block-padding) 
+                     50px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .page-switch {
+        @include glass-style(0);
+
+        .page {
+            --page-width: 100vw;
+            --element-width: 85vw;
+
+            display: flex;
+            flex-direction: column;
+            row-gap: 150px;
+
+            .section {
+                padding: 20px 0;
+
+                &.caption {
+                    padding: 0;
+                    @include full-height(600px);
+
+                    .content-block {
+                        padding: 0 30px;
+
+                        .caption-footer {
+                            margin: 5px;
+                        }
+                    }
+                }
+
+                .content-block {
+                    background: transparent;
+                    box-shadow: unset;
+                    border-radius: 0;
+                    backdrop-filter: unset;
+                }
+            }
+
+            &.home {
+                .greeting {
+                    .content-block {
+                        padding: 0 40px;
+    
+                        .illustration {
+                            .person {
+                                width: 60vw;
+                            }
+                        }
+                    }
+                }
+
+                .skills, .conclusion {
+                    .content-block {
+                        padding: 0;
+                    }
+                }
+            }
+
+            &.works {
+                .works-grid .content-block {
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .footer {
+        background: transparent;
+        box-shadow: unset;
+        border-radius: 0;
+        backdrop-filter: unset;
+        margin-bottom: 0;
+        margin-top: 70px;
+    }
+
+    .work-cards {
+        row-gap: 80px;
+
+        .work-card .container {
+            height: 65vw;
+            padding: 10px;
+        }
+    }
+
+    .timeline {
+        --image-height: 42vw;
+        --item-margin: 80px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .page-switch .page {
+        &.home {
+            .skills .content-block .skill-blocks .skill-block {
+                padding: 40px;
+
+                .skill-block__header {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    row-gap: 30px;
+
+                    .skill-caption {
+                        align-items: flex-start;
+                        flex-direction: column;
+                        row-gap: 20px;
+                    }
+                }
+            }
+
+            .greeting {
+                .content-block {
+                    padding: 0 40px;
+
+                    .illustration {
+                        .person {
+                            width: 65vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .timeline .timeline-items .timeline-item .image__wrapper {
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    body {
+        font-size: 16px;
+    }
+
+    .header {
+        --header-height: 40px;
+    }
+
+    .page-switch .page {
+        .section.caption {
+            @include full-height(550px);
+
+            .content-block {
+                .caption-body {
+                    padding-top: 150px;
+    
+                    .icon {
+                        width: 60px;
+                        height: 60px;
+                        margin-bottom: 20px;
+                    }
+    
+                    .title {
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .caption-footer {
+                    .scroll-button {
+                        height: 70px;
+                        width: 70px;
+                    }
+                }
+            }
+        }
+
+        &.home {
+            .caption .content-block .caption-body {
+                padding-top: 100px;
+    
+                .text {
+                    margin-bottom: 30px;
+                }
+        
+                .face-icon {
+                    height: 130px;
+                }
+            }
+
+            .skills .content-block .skill-blocks .skill-block {
+                padding: 30px;
+
+                .skill-block__body .skill-category .skill-items .skill-item .skill-item__icon {
+                    --size: 25px;
+                }
+            }
+        }
+
+        &.works {
+            .works-grid .content-block {
+                .work-cards .work-card {
+                    font-size: 1.1em;
+
+                    .container .card-title-picture__wrapper .platform-label {
+                        height: 35px;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    .navbar .navbar-buttons {
+        column-gap: 25px;
+
+        .navbar-button {
+            img, svg {
+                height: 30px;
+                width: 30px;
+            }
+        }
+    }
+
+    .footer .social-links .social-link {
+        height: 20px;
+        margin-right: 40px;
+    }
+
+    .timeline {
+        --image-height: 40vw;
     }
 }

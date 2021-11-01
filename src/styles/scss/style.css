@@ -449,7 +449,7 @@ button.bg-blur, .button.bg-blur {
           backdrop-filter: blur(10px);
 }
 
-.scroll-buttons .scroll-button.active .scroll-index {
+.scroll-buttons .scroll-button.active .scroll-position {
   opacity: 1;
 }
 
@@ -818,6 +818,7 @@ button.bg-blur, .button.bg-blur {
 }
 
 .page-switch .page .section.caption .content-block {
+  padding: 0 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -858,6 +859,11 @@ button.bg-blur, .button.bg-blur {
 
 .page-switch .page .section.caption .content-block .caption-body .title {
   margin-bottom: 30px;
+  text-align: center;
+}
+
+.page-switch .page .section.caption .content-block .caption-body .text {
+  text-align: center;
 }
 
 .page-switch .page .section.caption .content-block .caption-footer {
@@ -966,7 +972,6 @@ button.bg-blur, .button.bg-blur {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px;
   position: relative;
 }
 
@@ -987,17 +992,12 @@ button.bg-blur, .button.bg-blur {
           align-items: center;
 }
 
-.page-switch .page.home .caption .content-block .caption-body .title {
-  margin-bottom: 30px;
-}
-
 .page-switch .page.home .caption .content-block .caption-body .text {
   text-align: center;
   margin-bottom: 50px;
 }
 
 .page-switch .page.home .caption .content-block .caption-body .face-icon {
-  height: 200px;
   height: 200px;
   -webkit-transition: 400ms ease;
   transition: 400ms ease;
@@ -1607,6 +1607,549 @@ button.bg-blur, .button.bg-blur {
   }
   .footer .social-links .social-link {
     height: 30px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .timeline {
+    --image-height: 30vw;
+    --image-width: 100%;
+    --dot-size: 50px;
+    --left-margin: 110px;
+  }
+  .timeline .main-line {
+    left: var(--left-margin);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(2%, #FFFFFF), color-stop(93%, #FFFFFF), to(rgba(255, 255, 255, 0)));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 2%, #FFFFFF 93%, rgba(255, 255, 255, 0) 100%);
+  }
+  .timeline .main-line .rhomb, .timeline .main-line .sub-line {
+    display: none;
+  }
+  .timeline .timeline-items .timeline-item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    width: 90%;
+  }
+  .timeline .timeline-items .timeline-item .info {
+    margin-left: 0;
+    margin-bottom: 25px;
+  }
+  .timeline .timeline-items .timeline-item .info .year-block {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    margin-bottom: 20px;
+  }
+  .timeline .timeline-items .timeline-item .info .year-block .dot {
+    margin: 0;
+    -webkit-box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+    position: absolute;
+    left: calc(var(--left-margin) - calc((var(--dot-size) / 2) - (var(--line-width) / 2)));
+    width: var(--dot-size);
+    height: var(--dot-size);
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .timeline .timeline-items .timeline-item:hover .info .year-block .dot {
+    -webkit-box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .page-switch .page.home .greeting {
+    min-height: auto;
+    height: auto;
+  }
+  .page-switch .page.home .greeting .content-block {
+    padding: 100px 130px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 60px;
+  }
+  .page-switch .page.home .greeting .content-block .info {
+    width: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+  .page-switch .page.home .greeting .content-block .illustration .person {
+    width: 35vw;
+  }
+  .page-switch .page.home .greeting .content-block .illustration .terminal {
+    display: none;
+  }
+  .page-switch .page .back-to-home-button__wrapper {
+    left: 10px;
+  }
+  .page-switch .page .back-to-home-button__wrapper .back-to-home-button {
+    height: 45px;
+    width: 45px;
+    padding: 0;
+  }
+  .page-switch .page .scroll-buttons {
+    right: 25px;
+  }
+  .work-cards {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -webkit-column-gap: 0;
+            column-gap: 0;
+  }
+  .work-cards .work-card .container {
+    width: 100%;
+    height: 40vw;
+  }
+  .work-cards .work-card .container .card-header .name__wrapper {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .page-switch .page.home .skills .content-block .skill-blocks {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block {
+    width: 65vw;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__header .skill-caption {
+    margin: 0;
+    width: auto;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 50px;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__body .skill-category {
+    width: 100%;
+    margin: 0 !important;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__body .skill-category .skill-items .skill-item .skill-item__name-progress .name {
+    max-width: 100%;
+  }
+  .page-switch .page.home .conclusion .content-block .container-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-column-gap: 0;
+            column-gap: 0;
+    row-gap: 40px;
+  }
+  .page-switch .page.home .conclusion .content-block .container-links .link {
+    width: 50vw;
+  }
+  .page-switch .page.home .conclusion .content-block .container-links .link .container {
+    padding: 50px 10px;
+  }
+  .page-switch .page .scroll-buttons {
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .timeline {
+    --image-height: 27vw;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  h1 {
+    font-size: 1.6em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+  body {
+    font-size: 19px;
+  }
+  .navbar {
+    padding: 20px;
+  }
+  .page-switch .page.home .caption .content-block .caption-body .face-icon {
+    height: 170px;
+  }
+  .page-switch .page.home .greeting .content-block {
+    padding: 100px 75px;
+  }
+  .page-switch .page.home .greeting .content-block .illustration .person {
+    width: 40vw;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block {
+    font-size: 1em;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__header .progress .switch .switch-title {
+    display: none;
+  }
+  .page-switch .page.works .works-grid .content-block {
+    padding: 70px;
+  }
+  .page-switch .page .scroll-buttons {
+    right: 15px;
+  }
+  .work-cards .work-card .container {
+    height: 45vw;
+  }
+  .timeline {
+    --item-margin: 60px;
+  }
+  .timeline .timeline-items {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .page-switch .page {
+    --page-width: 90vw;
+  }
+  .page-switch .page .section .content-block > .title {
+    padding-bottom: 40px;
+  }
+  .page-switch .page .scroll-buttons, .page-switch .page .back-to-home-button__wrapper {
+    display: none;
+  }
+  .page-switch .page.home .skills .content-block {
+    padding: 100px 0;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block {
+    width: 75vw;
+  }
+  .page-switch .page.home .conclusion .content-block {
+    padding: 100px 0;
+  }
+  .page-switch .page.home .conclusion .content-block .container-links .link {
+    width: 70vw;
+  }
+  .work-cards .work-card .container {
+    height: 50vw;
+  }
+  .timeline {
+    --image-height: 34vw;
+    --left-margin: 90px;
+  }
+  .timeline .timeline-items {
+    padding: 70px 70px 70px 40px;
+  }
+  .timeline .timeline-items .timeline-item {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .timeline {
+    --line-width: 6px;
+    --dot-size: 40px;
+    --left-margin: 70px;
+    --image-height: 36vw;
+  }
+  .timeline .timeline-items {
+    padding: 70px 50px 70px 70px;
+    margin-left: var(--left-margin);
+  }
+  .timeline .timeline-items .timeline-item .image__wrapper {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .page-switch .page {
+    --block-padding: 80px;
+    --element-width: 78vw;
+  }
+  .page-switch .page.home .greeting .content-block {
+    padding: var(--block-padding) 50px;
+  }
+  .page-switch .page.home .greeting .content-block .illustration .person {
+    width: 50vw;
+  }
+  .page-switch .page.home .skills .content-block {
+    padding: var(--block-padding) 0;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block {
+    padding: 50px;
+    width: var(--element-width);
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__header .skill-caption .skill-caption-icon {
+    display: none;
+  }
+  .page-switch .page.home .conclusion .content-block {
+    padding: var(--block-padding) 0;
+  }
+  .page-switch .page.home .conclusion .content-block .container-links .link {
+    width: var(--element-width);
+  }
+  .page-switch .page.works .works-grid .content-block {
+    padding: 60px 0;
+  }
+  .work-cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    row-gap: 60px;
+  }
+  .work-cards .work-card {
+    width: var(--element-width);
+  }
+  .work-cards .work-card .container {
+    width: 100%;
+    height: 55vw;
+  }
+  .footer {
+    padding: 30px;
+  }
+  .footer .social-links .social-link {
+    margin-right: 60px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .timeline {
+    --left-margin: 50px;
+    --dot-size: 30px;
+    --line-width: 4px;
+    --image-height: 38vw;
+  }
+  .timeline .timeline-items {
+    padding: var(--block-padding) 40px var(--block-padding) 50px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .page-switch {
+    border-radius: 0;
+    background: rgba(33, 43, 54, 0.5);
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+    -webkit-box-shadow: 0 0 30px rgba(33, 43, 54, 0.4);
+            box-shadow: 0 0 30px rgba(33, 43, 54, 0.4);
+    overflow: hidden;
+  }
+  .page-switch .page {
+    --page-width: 100vw;
+    --element-width: 85vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 150px;
+  }
+  .page-switch .page .section {
+    padding: 20px 0;
+  }
+  .page-switch .page .section.caption {
+    padding: 0;
+    height: 100vh;
+    min-height: 600px;
+  }
+  .page-switch .page .section.caption .content-block {
+    padding: 0 30px;
+  }
+  .page-switch .page .section.caption .content-block .caption-footer {
+    margin: 5px;
+  }
+  .page-switch .page .section .content-block {
+    background: transparent;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+    border-radius: 0;
+    -webkit-backdrop-filter: unset;
+            backdrop-filter: unset;
+  }
+  .page-switch .page.home .greeting .content-block {
+    padding: 0 40px;
+  }
+  .page-switch .page.home .greeting .content-block .illustration .person {
+    width: 60vw;
+  }
+  .page-switch .page.home .skills .content-block, .page-switch .page.home .conclusion .content-block {
+    padding: 0;
+  }
+  .page-switch .page.works .works-grid .content-block {
+    padding: 0;
+  }
+  .footer {
+    background: transparent;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+    border-radius: 0;
+    -webkit-backdrop-filter: unset;
+            backdrop-filter: unset;
+    margin-bottom: 0;
+    margin-top: 70px;
+  }
+  .work-cards {
+    row-gap: 80px;
+  }
+  .work-cards .work-card .container {
+    height: 65vw;
+    padding: 10px;
+  }
+  .timeline {
+    --image-height: 42vw;
+    --item-margin: 80px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block {
+    padding: 40px;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__header {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 30px;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__header .skill-caption {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    row-gap: 20px;
+  }
+  .page-switch .page.home .greeting .content-block {
+    padding: 0 40px;
+  }
+  .page-switch .page.home .greeting .content-block .illustration .person {
+    width: 65vw;
+  }
+  .timeline .timeline-items .timeline-item .image__wrapper {
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  body {
+    font-size: 16px;
+  }
+  .header {
+    --header-height: 40px;
+  }
+  .page-switch .page .section.caption {
+    height: 100vh;
+    min-height: 550px;
+  }
+  .page-switch .page .section.caption .content-block .caption-body {
+    padding-top: 150px;
+  }
+  .page-switch .page .section.caption .content-block .caption-body .icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  .page-switch .page .section.caption .content-block .caption-body .title {
+    margin-bottom: 20px;
+  }
+  .page-switch .page .section.caption .content-block .caption-footer .scroll-button {
+    height: 70px;
+    width: 70px;
+  }
+  .page-switch .page.home .caption .content-block .caption-body {
+    padding-top: 100px;
+  }
+  .page-switch .page.home .caption .content-block .caption-body .text {
+    margin-bottom: 30px;
+  }
+  .page-switch .page.home .caption .content-block .caption-body .face-icon {
+    height: 130px;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block {
+    padding: 30px;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__body .skill-category .skill-items .skill-item .skill-item__icon {
+    --size: 25px;
+  }
+  .page-switch .page.works .works-grid .content-block .work-cards .work-card {
+    font-size: 1.1em;
+  }
+  .page-switch .page.works .works-grid .content-block .work-cards .work-card .container .card-title-picture__wrapper .platform-label {
+    height: 35px;
+  }
+  .navbar .navbar-buttons {
+    -webkit-column-gap: 25px;
+            column-gap: 25px;
+  }
+  .navbar .navbar-buttons .navbar-button img, .navbar .navbar-buttons .navbar-button svg {
+    height: 30px;
+    width: 30px;
+  }
+  .footer .social-links .social-link {
+    height: 20px;
+    margin-right: 40px;
+  }
+  .timeline {
+    --image-height: 40vw;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -6,10 +6,13 @@ import github from '../../images/icons/github-gradient.svg';
 import { Link } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import settings from '../../../package.json';
+import { useMediaQuery } from 'react-responsive';
 
 const appGitName = settings['git-name'];
 
 const Conclusion: FC = () => {
+    const isSmallScreen = useMediaQuery({ maxWidth: 1000 });
+
     return (
         <Element name="conclusion" className="conclusion section">
             <div className="content-block">
@@ -38,7 +41,7 @@ const Conclusion: FC = () => {
                         </Container>
                     </Link>
                     <a className="link github-link" href="https://github.com/sanguinesadness" target="_blank" rel="noopener noreferrer">
-                        <Container className="github-container horizontal">
+                        <Container className={`github-container ${isSmallScreen ? "vertical" : "horizontal"}`}>
                             <div className="main-block">
                                 <img src={github} alt="" className="icon" />
                                 <h3 className="title">Github</h3>

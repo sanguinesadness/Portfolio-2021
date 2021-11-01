@@ -17,6 +17,7 @@ export enum PlatformTypes {
 export interface IWork {
     id: string | number;
     name: string;
+    shortName?: string;
     type: WorkTypes;
     platform: PlatformTypes;
     titlePicture: string;

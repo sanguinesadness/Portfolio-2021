@@ -12,6 +12,7 @@ export const works: IWork[] = [
     {
         id: uniqid(),
         name: "Game Management System",
+        shortName: "Game Manager",
         type: WorkTypes.FULL_STACK,
         titlePicture: gms_web,
         pictures: [],
@@ -33,6 +34,7 @@ export const works: IWork[] = [
     {
         id: uniqid(),
         name: "Game Management System",
+        shortName: "Game Manager",
         type: WorkTypes.DESKTOP,
         titlePicture: gms_desktop,
         pictures: [],
