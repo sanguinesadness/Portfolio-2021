@@ -1643,10 +1643,6 @@ button.bg-blur, .button.bg-blur {
     margin-bottom: 25px;
   }
   .timeline .timeline-items .timeline-item .info .year-block {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
     margin-bottom: 20px;
   }
   .timeline .timeline-items .timeline-item .info .year-block .dot {
