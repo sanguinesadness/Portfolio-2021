@@ -1715,21 +1715,6 @@ button.bg-blur, .button.bg-blur {
 }
 
 @media screen and (max-width: 1000px) {
-  .page-switch .page.home .skills .content-block .skill-blocks {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-  }
   .page-switch .page.home .skills .content-block .skill-blocks .skill-block {
     width: 65vw;
   }
@@ -1757,11 +1742,16 @@ button.bg-blur, .button.bg-blur {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    row-gap: 50px;
   }
   .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__body .skill-category {
     width: 100%;
-    margin: 0 !important;
+    margin-bottom: 50px;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__body .skill-category:nth-child(1) {
+    margin-right: 0;
+  }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__body .skill-category:nth-last-child(1) {
+    margin: 0;
   }
   .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__body .skill-category .skill-items .skill-item .skill-item__name-progress .name {
     max-width: 100%;
@@ -1779,10 +1769,14 @@ button.bg-blur, .button.bg-blur {
             justify-content: flex-start;
     -webkit-column-gap: 0;
             column-gap: 0;
-    row-gap: 40px;
+    row-gap: 0;
   }
   .page-switch .page.home .conclusion .content-block .container-links .link {
     width: 50vw;
+    margin-bottom: 40px;
+  }
+  .page-switch .page.home .conclusion .content-block .container-links .link:nth-last-child(1) {
+    margin-bottom: 0;
   }
   .page-switch .page.home .conclusion .content-block .container-links .link .container {
     padding: 50px 10px;
@@ -1941,10 +1935,16 @@ button.bg-blur, .button.bg-blur {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    row-gap: 60px;
+    -webkit-column-gap: 0;
+            column-gap: 0;
+    row-gap: 0;
   }
   .work-cards .work-card {
     width: var(--element-width);
+    margin-bottom: 60px;
+  }
+  .work-cards .work-card:nth-last-child(1) {
+    margin-bottom: 0;
   }
   .work-cards .work-card .container {
     width: 100%;
@@ -1991,10 +1991,13 @@ button.bg-blur, .button.bg-blur {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    row-gap: 150px;
   }
   .page-switch .page .section {
     padding: 20px 0;
+    margin-bottom: 150px;
+  }
+  .page-switch .page .section:nth-last-child(2) {
+    margin-bottom: 0;
   }
   .page-switch .page .section.caption {
     padding: 0;
@@ -2021,6 +2024,9 @@ button.bg-blur, .button.bg-blur {
   .page-switch .page.home .greeting .content-block .illustration .person {
     width: 60vw;
   }
+  .page-switch .page.home .skills .content-block .skill-blocks .skill-block {
+    padding: 40px;
+  }
   .page-switch .page.home .skills .content-block, .page-switch .page.home .conclusion .content-block {
     padding: 0;
   }
@@ -2037,8 +2043,8 @@ button.bg-blur, .button.bg-blur {
     margin-bottom: 0;
     margin-top: 70px;
   }
-  .work-cards {
-    row-gap: 80px;
+  .work-cards .work-card {
+    margin-bottom: 80px;
   }
   .work-cards .work-card .container {
     height: 65vw;
@@ -2051,9 +2057,6 @@ button.bg-blur, .button.bg-blur {
 }
 
 @media screen and (max-width: 370px) {
-  .page-switch .page.home .skills .content-block .skill-blocks .skill-block {
-    padding: 40px;
-  }
   .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__header {
     -webkit-box-align: start;
         -ms-flex-align: start;

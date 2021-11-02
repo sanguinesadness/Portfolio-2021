@@ -1443,11 +1443,6 @@ button, .button {
     .page-switch .page {
         &.home {
             .skills .content-block .skill-blocks {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-
                 .skill-block {
                     width: 65vw;
                     
@@ -1462,11 +1457,18 @@ button, .button {
 
                     .skill-block__body {
                         flex-direction: column;
-                        row-gap: 50px;
 
                         .skill-category {
                             width: 100%;
-                            margin: 0 !important;
+                            margin-bottom: 50px;
+
+                            &:nth-child(1) {
+                                margin-right: 0;
+                            }
+
+                            &:nth-last-child(1) {
+                                margin: 0;
+                            }
 
                             .skill-items .skill-item .skill-item__name-progress .name {
                                 max-width: 100%;
@@ -1481,10 +1483,15 @@ button, .button {
                 flex-direction: column;
                 justify-content: flex-start;
                 column-gap: 0;
-                row-gap: 40px;
+                row-gap: 0;
 
                 .link {
                     width: 50vw;
+                    margin-bottom: 40px;
+
+                    &:nth-last-child(1) {
+                        margin-bottom: 0;
+                    }
 
                     .container {
                         padding: 50px 10px;
@@ -1691,10 +1698,16 @@ button, .button {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        row-gap: 60px;
+        column-gap: 0;
+        row-gap: 0;
 
         .work-card {
             width: var(--element-width);
+            margin-bottom: 60px;
+
+            &:nth-last-child(1) {
+                margin-bottom: 0;
+            }
 
             .container {
                 width: 100%;
@@ -1739,10 +1752,14 @@ button, .button {
 
             display: flex;
             flex-direction: column;
-            row-gap: 150px;
 
             .section {
                 padding: 20px 0;
+                margin-bottom: 150px;
+
+                &:nth-last-child(2) {
+                    margin-bottom: 0;
+                }
 
                 &.caption {
                     padding: 0;
@@ -1778,6 +1795,10 @@ button, .button {
                     }
                 }
 
+                .skills .content-block .skill-blocks .skill-block {
+                    padding: 40px;
+                }
+
                 .skills, .conclusion {
                     .content-block {
                         padding: 0;
@@ -1803,11 +1824,13 @@ button, .button {
     }
 
     .work-cards {
-        row-gap: 80px;
+        .work-card {
+            margin-bottom: 80px;
 
-        .work-card .container {
-            height: 65vw;
-            padding: 10px;
+            .container {
+                height: 65vw;
+                padding: 10px;
+            }
         }
     }
 
@@ -1821,8 +1844,6 @@ button, .button {
     .page-switch .page {
         &.home {
             .skills .content-block .skill-blocks .skill-block {
-                padding: 40px;
-
                 .skill-block__header {
                     align-items: flex-start;
                     flex-direction: column;
