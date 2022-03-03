@@ -1156,7 +1156,6 @@ button.bg-blur, .button.bg-blur {
 
 .page-switch .page.home .skills .content-block .skill-blocks .skill-block .skill-block__header .skill-caption .skill-caption-icon {
   height: 55px;
-  width: 55px;
   margin-right: 30px;
   fill: #5B49F5;
 }
@@ -1281,7 +1280,7 @@ button.bg-blur, .button.bg-blur {
           column-gap: 70px;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-      grid-template-areas: "wrk abt" "git git";
+      grid-template-areas: "wrk abt" "git git";
 }
 
 .page-switch .page.home .conclusion .content-block .container-links .link.my-works-link {

@@ -1,12 +1,13 @@
-import { IWork, PlatformTypes, WorkTypes } from '../types/work';
-import uniqid from 'uniqid';
-import gms_web from '../images/projects/GMS-web.png';
-import gms_desktop from '../images/projects/GMS-desktop.png';
-import fake_store from '../images/projects/fake-store.png';
-import weather_app from '../images/projects/weather-app.png';
-import area17 from '../images/projects/area17.png';
-import gamerly from '../images/projects/gamerly.png';
-import my_little_paint from '../images/projects/my-little-paint.png';
+import { IWork, PlatformTypes, WorkTypes } from "../types/work";
+import uniqid from "uniqid";
+import gms_web from "../images/projects/GMS-web.png";
+import gms_desktop from "../images/projects/GMS-desktop.png";
+import fake_store from "../images/projects/fake-store.png";
+import weather_app from "../images/projects/weather-app.png";
+import area17 from "../images/projects/area17.png";
+import gamerly from "../images/projects/gamerly.png";
+import my_little_paint from "../images/projects/my-little-paint.png";
+import sendsay_console from "../images/projects/sendsay-api-console.png";
 
 export const works: IWork[] = [
     {
@@ -27,9 +28,9 @@ export const works: IWork[] = [
             "MySql",
             "SCSS",
             "MVC",
-            "GSAP"
+            "GSAP",
         ],
-        link: "https://github.com/sanguinesadness/GameManager-Web"
+        link: "https://github.com/sanguinesadness/GameManager-Web",
     },
     {
         id: uniqid(),
@@ -44,9 +45,9 @@ export const works: IWork[] = [
             "WPF",
             "C#",
             "MS SQL Server",
-            "Material UI"
+            "Material UI",
         ],
-        link: "https://github.com/sanguinesadness/GameManager-Desktop"
+        link: "https://github.com/sanguinesadness/GameManager-Desktop",
     },
     {
         id: uniqid(),
@@ -61,9 +62,9 @@ export const works: IWork[] = [
             "TypeScript",
             "SCSS",
             "Commerce.js",
-            "GSAP"
+            "GSAP",
         ],
-        link: "https://github.com/sanguinesadness/Store-App-React"
+        link: "https://github.com/sanguinesadness/Store-App-React",
     },
     {
         id: uniqid(),
@@ -72,12 +73,8 @@ export const works: IWork[] = [
         titlePicture: weather_app,
         pictures: [],
         platform: PlatformTypes.WEB,
-        techTags: [
-            "React.js",
-            "SCSS",
-            "Openweathermap API"
-        ],
-        link: "https://github.com/sanguinesadness/Weather-App-React"
+        techTags: ["React.js", "SCSS", "Openweathermap API"],
+        link: "https://github.com/sanguinesadness/Weather-App-React",
     },
     {
         id: uniqid(),
@@ -86,13 +83,8 @@ export const works: IWork[] = [
         titlePicture: area17,
         pictures: [],
         platform: PlatformTypes.WEB,
-        techTags: [
-            "HTML",
-            "CSS",
-            "Pure JS",
-            "GSAP"
-        ],
-        link: "https://github.com/sanguinesadness/AREA17"
+        techTags: ["HTML", "CSS", "Pure JS", "GSAP"],
+        link: "https://github.com/sanguinesadness/AREA17",
     },
     {
         id: uniqid(),
@@ -101,13 +93,8 @@ export const works: IWork[] = [
         titlePicture: gamerly,
         pictures: [],
         platform: PlatformTypes.WEB,
-        techTags: [
-            "HTML",
-            "CSS",
-            "Pure JS",
-            "GSAP"
-        ],
-        link: "https://github.com/sanguinesadness/gmrly."
+        techTags: ["HTML", "CSS", "Pure JS", "GSAP"],
+        link: "https://github.com/sanguinesadness/gmrly.",
     },
     {
         id: uniqid(),
@@ -116,11 +103,17 @@ export const works: IWork[] = [
         titlePicture: my_little_paint,
         pictures: [],
         platform: PlatformTypes.WINDOWS,
-        techTags: [
-            "C#",
-            "WinForms",
-            "OpenStreetMap API"
-        ],
-        link: "https://github.com/sanguinesadness/PaintMDI"
-    }
-]
+        techTags: ["C#", "WinForms", "OpenStreetMap API"],
+        link: "https://github.com/sanguinesadness/PaintMDI",
+    },
+    {
+        id: uniqid(),
+        name: "Sendsay API Console",
+        type: WorkTypes.FRONT_END,
+        titlePicture: sendsay_console,
+        pictures: [],
+        platform: PlatformTypes.WEB,
+        techTags: ["React", "Redux", "TypeScript", "MobX", "SCSS", "BEM"],
+        link: "https://github.com/sanguinesadness/sendsay-api-console",
+    },
+];
