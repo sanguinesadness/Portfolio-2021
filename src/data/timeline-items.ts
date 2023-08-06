@@ -3,13 +3,14 @@ import uniqid from "uniqid";
 
 import lyceum from "../images/story/lyceum.jpg";
 import phys_math from "../images/story/phys-math.jpg";
-import hse from "../images/story/hse.jpg";
+import hseLogo from "../images/story/hse_logo_transparent.png";
 import it from "../images/story/it.png";
 import webdev from "../images/story/webdev.jpg";
 import csharp from "../images/story/csharp.png";
 import porfolio from "../images/story/portfolio.png";
 import nikifilini from "../images/story/nikifilini.png";
 import hivex from "../images/story/hivex.png";
+import tochka from "../images/story/tochka.png";
 
 export const timelineItems: ITimelineItem[] = [
     {
@@ -35,7 +36,7 @@ export const timelineItems: ITimelineItem[] = [
     },
     {
         id: uniqid(),
-        image: hse,
+        image: hseLogo,
         year: 2019,
         paragraphs: [
             "Сдал ЕГЭ на высокий балл.",
@@ -62,12 +63,12 @@ export const timelineItems: ITimelineItem[] = [
         id: uniqid(),
         image: porfolio,
         year: "10/2021",
-        paragraphs: ["Создал сайт-портфолио для демонстрации своих работ."],
+        paragraphs: ["Создал сайт-портфолио для демонстрации своих работ и предоставления информации о себе."],
     },
     {
         id: uniqid(),
         image: nikifilini,
-        year: "11/2021 – 01/2022",
+        year: "06/2021 – 09/2021",
         paragraphs: [
             "Работал Full-stack разработчиком в Московской компании NIKIFILINI.",
             "Бренд занимается продажей одежды собственного производства.",
@@ -77,10 +78,31 @@ export const timelineItems: ITimelineItem[] = [
     {
         id: uniqid(),
         image: hivex,
-        year: "02/2022 – Now",
+        year: "09/2021 – 03/2022",
         paragraphs: [
             "Работаю Front-end разработчиком в международной компании Hivex.",
             "Технологии: React, Redux, MobX, TypeScript.",
         ],
     },
+    {
+        id: uniqid(),
+        image: tochka,
+        year: "03/2022 – Now",
+        paragraphs: [
+            "Работаю Front-end разработчиком в банке для предпринимателей Точка.",
+            "Технологии: React, Typescript, RxJS, Effector, Angular."
+        ]
+    },
+    {
+        id: uniqid(),
+        image: hseLogo,
+        year: "06/2023",
+        paragraphs: ["Закончил бакалавриат НИУ ВШЭ Пермь по направлению 'Программная инженерия'."]
+    },
+    {
+        id: uniqid(),
+        image: hseLogo,
+        year: "08/2023",
+        paragraphs: ["Поступил в магистратуру НИУ ВШЭ Пермь на направление 'Финансовые стратегии и аналитика'."]
+    }
 ];

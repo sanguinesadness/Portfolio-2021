@@ -29,12 +29,12 @@ const SkillBlock: FC<ISkillBlockProps> = ({ captionLogoSrc, captionText, categor
             </div>
             <div className="skill-block__body">
                 {
-                    categories.map(category => 
+                    categories.map(category =>
                         <div key={category.name} className="skill-category">
                             <span className="title">{category.name}</span>
                             <div className="skill-items">
                                 {
-                                    category.items.map(item =>
+                                    category.items.sort((a, b) => b.progress - a.progress).map(item =>
                                         <div key={item.name} className="skill-item">
                                             <img className="skill-item__icon" src={item.logo} alt="" />
 

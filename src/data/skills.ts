@@ -28,6 +28,14 @@ import postgres from "../images/icons/logos/postgres.png";
 import docker from "../images/icons/logos/docker.png";
 import datagrip from "../images/icons/logos/datagrip.png";
 import android from "../images/icons/logos/android-studio.svg";
+import webstorm from "../images/icons/logos/webstorm.png";
+import mobx from "../images/icons/logos/mobx.png";
+import rxjs from "../images/icons/logos/rxjs.png";
+import redux from "../images/icons/logos/redux.png";
+import effector from "../images/icons/logos/effector.svg";
+import angular from "../images/icons/logos/angular.png";
+import gitlab from "../images/icons/logos/gitlab.png";
+import bitbucket from "../images/icons/logos/bitbucket.png";
 
 export const frontendCategories: ISkillCategory[] = [
     {
@@ -46,28 +54,58 @@ export const frontendCategories: ISkillCategory[] = [
             {
                 logo: js,
                 name: "JavaScript",
-                progress: 85,
+                progress: 95,
             },
             {
                 logo: scss,
                 name: "SCSS",
-                progress: 90,
+                progress: 95,
             },
             {
                 logo: react,
                 name: "React.js",
-                progress: 85,
+                progress: 90,
             },
             {
                 logo: ts,
                 name: "TypeScript",
-                progress: 85,
+                progress: 90,
+            },
+            {
+                logo: rxjs,
+                name: 'RxJs',
+                progress: 60
+            },
+            {
+                logo: mobx,
+                name: 'MobX',
+                progress: 70
+            },
+            {
+                logo: redux,
+                name: 'Redux',
+                progress: 30
+            },
+            {
+                logo: effector,
+                name: 'Effector',
+                progress: 20
+            },
+            {
+                logo: angular,
+                name: 'Angular',
+                progress: 20
             },
         ],
     },
     {
         name: "Инструменты",
         items: [
+            {
+                logo: webstorm,
+                name: "WebStorm",
+                progress: 95
+            },
             {
                 logo: vscode,
                 name: "Visual Studio Code",
@@ -88,6 +126,16 @@ export const frontendCategories: ISkillCategory[] = [
                 name: "GitHub",
                 progress: 75,
             },
+            {
+                logo: gitlab,
+                name: "GitLab",
+                progress: 85
+            },
+            {
+                logo: bitbucket,
+                name: "Bitbucket",
+                progress: 80
+            }
         ],
     },
 ];
@@ -104,12 +152,12 @@ export const backendCategories: ISkillCategory[] = [
             {
                 logo: nestjs,
                 name: "Nest.js",
-                progress: 70,
+                progress: 80,
             },
             {
                 logo: netcore,
                 name: "ASP.NET Core MVC",
-                progress: 60,
+                progress: 50,
             },
             {
                 logo: postgres,
@@ -124,12 +172,12 @@ export const backendCategories: ISkillCategory[] = [
             {
                 logo: sqlserver,
                 name: "MS SQL Server",
-                progress: 70,
+                progress: 65,
             },
             {
                 logo: csharp,
                 name: "C#",
-                progress: 90,
+                progress: 60,
             },
         ],
     },
@@ -184,7 +232,7 @@ export const backendCategories: ISkillCategory[] = [
             {
                 logo: terminal,
                 name: "Terminal",
-                progress: 60,
+                progress: 80,
             },
         ],
     },
@@ -213,7 +261,7 @@ export const desktopCategories: ISkillCategory[] = [
                 logo: electron,
                 name: "Electron.js",
                 progress: 50,
-            },
+            }
         ],
     },
     {
@@ -253,9 +301,9 @@ export const mobileCategories: ISkillCategory[] = [
         name: "Инструменты",
         items: [
             {
-                logo: vscode,
-                name: "Visual Studio Code",
-                progress: 50,
+                logo: webstorm,
+                name: "Webstorm",
+                progress: 95,
             },
             {
                 logo: android,

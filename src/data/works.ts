@@ -1,15 +1,34 @@
-import { IWork, PlatformTypes, WorkTypes } from "../types/work";
-import uniqid from "uniqid";
-import gms_web from "../images/projects/GMS-web.png";
-import gms_desktop from "../images/projects/GMS-desktop.png";
-import fake_store from "../images/projects/fake-store.png";
-import weather_app from "../images/projects/weather-app.png";
-import area17 from "../images/projects/area17.png";
-import gamerly from "../images/projects/gamerly.png";
-import my_little_paint from "../images/projects/my-little-paint.png";
-import sendsay_console from "../images/projects/sendsay-api-console.png";
+import uniqid from 'uniqid';
+import area17 from '../images/projects/area17.png';
+import fake_store from '../images/projects/fake-store.png';
+import gamerly from '../images/projects/gamerly.png';
+import gms_desktop from '../images/projects/GMS-desktop.png';
+import gms_web from '../images/projects/GMS-web.png';
+import hse_mp from '../images/projects/hse-mp.png';
+import my_little_paint from '../images/projects/my-little-paint.png';
+import sendsay_console from '../images/projects/sendsay-api-console.png';
+import weather_app from '../images/projects/weather-app.png';
+import { IWork, PlatformTypes, WorkTypes } from '../types/work';
 
 export const works: IWork[] = [
+    {
+        id: uniqid(),
+        name: "Аналитика маркетплейсов",
+        shortName: "HSE MP",
+        type: WorkTypes.FULL_STACK,
+        titlePicture: hse_mp,
+        pictures: [],
+        platform: PlatformTypes.WEB,
+        techTags: [
+            "React.js",
+            "TypeScript",
+            "MobX",
+            "Nest.js",
+            "Express",
+            "PostgreSql"
+        ],
+        link: "https://github.com/sanguinesadness/hse-mp-client"
+    },
     {
         id: uniqid(),
         name: "Game Management System",
